@@ -22,4 +22,22 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
   },
+  'import/order': [
+    'error',
+    {
+      groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
+      pathGroups: [
+        {
+          pattern: '@nestjs/**',
+          group: 'builtin',
+          position: 'before',
+        },
+      ],
+      pathGroupsExcludedImportTypes: ['@nestjs/**'],
+      'newlines-between': 'always',
+      alphabetize: {
+        order: 'asc',
+      },
+    },
+  ],
 };
